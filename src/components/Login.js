@@ -37,7 +37,7 @@ const token = useSelector((state)=>state.user.token)
       const { name, ...OtherThanName } = formData;
       try {
         const response = await axios.post(
-          "http://localhost:5000/api/v1/auth/login",
+          "https://atflix.onrender.com/api/v1/auth/login",
           OtherThanName
         );
 
@@ -76,7 +76,7 @@ const token = useSelector((state)=>state.user.token)
     } else {
       try {
         const responce = await axios.post(
-          "http://localhost:5000/api/v1/auth/signup",
+          "https://atflix.onrender.com/api/v1/auth/signup",
           formData
         );
         if (responce.data.success) {
