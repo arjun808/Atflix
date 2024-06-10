@@ -8,9 +8,7 @@ import axios from "axios";
 import { addUser, addToken } from "../utils/userSlice";
 import { useSelector } from "react-redux";
 function Login() {
- 
-  
-const token = useSelector((state)=>state.user.token)
+  const token = useSelector((state) => state.user.token);
   const dispatch = useDispatch();
   const [isSignIn, setisSignIn] = useState(true);
   const navigate = useNavigate();
@@ -45,11 +43,10 @@ const token = useSelector((state)=>state.user.token)
         if (response.status >= 200 && response.status < 300) {
           toast.success("Login Successful");
           console.log("Login successful");
-        
 
           localStorage.setItem("token", JSON.stringify(response.data.token));
-         
-          dispatch(addToken(response.data.token))
+
+          dispatch(addToken(response.data.token));
           navigate("/browse");
         } else if (response.status === 401) {
           // Handle unsuccessful response
@@ -91,13 +88,11 @@ const token = useSelector((state)=>state.user.token)
       }
     }
   };
-  useEffect(()=>{
-    if(token){
-      navigate("/browse")
+  useEffect(() => {
+    if (token) {
+      navigate("/browse");
     }
-
-  },[navigate,token])
-
+  }, [navigate, token]);
 
   const schema = Yup.object().shape({
     email: Yup.string()
