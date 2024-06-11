@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
   const [openQuestionId, setOpenQuestionId] = useState(null);
 
   const toggleQuestion = (id) => {
     setOpenQuestionId(openQuestionId === id ? null : id);
   };
+  const token = useSelector((state)=>state.user.token)
+ 
 
   const faqData = [
     {
@@ -45,6 +50,12 @@ function Home() {
         "Netflix offers a wide range of family-friendly programming. Parents can also set up individual profiles for each child with age-appropriate content restrictions.",
     },
   ];
+  console.log(token)
+useEffect(()=>{
+  if(token){
+    navigate("/browse")
+  }
+},[])
   return (
     <div className="bg-slate-600 ">
       <Header />
