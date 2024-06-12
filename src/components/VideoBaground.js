@@ -24,7 +24,7 @@ function VideoBaground({ id }) {
   }, []);
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden mb-11">
+    <div className="relative w-screen  h-screen overflow-hidden mb-11">
       <iframe
         className="absolute top-0 left-0 w-full h-full"
         src={"https://www.youtube.com/embed/" + trailer + "?&autoplay=1&mute=1"}

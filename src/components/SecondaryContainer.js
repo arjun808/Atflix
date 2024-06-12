@@ -12,7 +12,7 @@ function SecondaryContainer() {
 
   return (
     <div className="bg-black">
-      <div className="-mt-40 relative z-20 px-12">
+      <div className="-mt-40 relative z-20 px-0 lg:px-12">
         <MovieListComponent
           title={"Now Playing"}
           movies={movies.nowPlayingMovies}
